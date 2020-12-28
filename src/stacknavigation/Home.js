@@ -12,8 +12,7 @@ export default class Home extends Component {
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
           onPress={() => {
-            this.props.route.params.onChangeText('Update finish');
-            this.props.navigation.navigate('Login');
+            this.props.navigation.navigate('Login', {text: 'Update finish'});
           }}
           style={{backgroundColor: 'green', padding: 10, borderRadius: 5}}>
           <Text style={{color: 'white'}}>{this.props.route.params.user}</Text>

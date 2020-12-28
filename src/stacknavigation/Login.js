@@ -10,6 +10,12 @@ export default class Login extends Component {
       text: 'Navigate Screen Home',
     };
   }
+  componentDidUpdate = (prevProps) => {
+    if (prevProps.route.params?.text !== this.state.text) {
+      const result = this.props.route.params.text;
+      this.onChangeText(result);
+    }
+  };
   onChangeText = (text) => {
     this.setState({text});
   };
@@ -20,7 +26,7 @@ export default class Login extends Component {
           onPress={() =>
             this.props.navigation.navigate('Home', {
               user: 'reactnavigation',
-              onChangeText: this.onChangeText,
+              text: this.state.text,
             })
           }
           style={{backgroundColor: 'green', padding: 10, borderRadius: 5}}>
